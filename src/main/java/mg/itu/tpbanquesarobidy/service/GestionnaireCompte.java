@@ -5,7 +5,7 @@
 package mg.itu.tpbanquesarobidy.service;
 
 import jakarta.annotation.sql.DataSourceDefinition;
-import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -31,7 +31,7 @@ import mg.itu.tpbanquesarobidy.entity.CompteBancaire;
             "driverClass=com.mysql.cj.jdbc.Driver"
         }
 )
-@RequestScoped
+@ApplicationScoped
 public class GestionnaireCompte {
 
     @PersistenceContext(unitName = "banquePU")
@@ -43,7 +43,12 @@ public class GestionnaireCompte {
     }
     
     public List<CompteBancaire> getAllComptes() {
-        TypedQuery<CompteBancaire> query = em.createQuery("select*from comptebancaire",CompteBancaire.class);
+        TypedQuery<CompteBancaire> query = em.createQuery("select c from CompteBancaire c",CompteBancaire.class);
         return query.getResultList();
     } 
+    
+    public long nbComptes(){
+        TypedQuery<Long> query = em.createQuery("select count(c) from CompteBancaire c",Long.class);
+        return query.getSingleResult();
+    }
 }
