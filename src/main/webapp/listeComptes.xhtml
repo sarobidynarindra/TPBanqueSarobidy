@@ -16,29 +16,29 @@
 
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable value="#{listeComptes.allComptes}"
+                    <p:dataTable value="#{listeComptes.allComptes}"
                                  var="item">
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Id"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </h:column>
+                        </p:column>
 
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Nom"/>
                             </f:facet>
                             <h:outputText value="#{item.nom}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Solde"/>
                             </f:facet>
                             <h:outputText value="#{item.solde}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                     <h:messages/>
                 </h:form>
             </ui:define>
