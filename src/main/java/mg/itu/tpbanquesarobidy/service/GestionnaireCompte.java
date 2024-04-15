@@ -66,7 +66,7 @@ public class GestionnaireCompte {
         return em.merge(compteBancaire);
     }
     
-    public CompteBancaire findByid(Long id){
+    public CompteBancaire getCompte(Long id){
         return em.find(CompteBancaire.class, id);
     }
 }
