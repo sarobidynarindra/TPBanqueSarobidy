@@ -58,8 +58,8 @@ public class Transfert {
     }
     
     public String transfertArgent(){
-        CompteBancaire source=gestionnaireCompte.findByid(idSource);
-        CompteBancaire destination=gestionnaireCompte.findByid(idDestination);
+        CompteBancaire source=gestionnaireCompte.getCompte(idSource);
+        CompteBancaire destination=gestionnaireCompte.getCompte(idDestination);
         gestionnaireCompte.transferer(source, destination, montant);
         return "listeComptes?faces-redirect=true";
     }
