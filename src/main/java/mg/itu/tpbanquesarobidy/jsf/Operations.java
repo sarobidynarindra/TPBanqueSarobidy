@@ -22,8 +22,8 @@ import mg.itu.tpbanquesarobidy.service.GestionnaireCompte;
 public class Operations implements Serializable {
     
     private Long id;
-    private CompteBancaire comptebancaire;
-    private List<OperationBancaire> operationbancaire;
+    private CompteBancaire compteBancaire;
+    private List<OperationBancaire> operationBancaires;
     
     @Inject
     private GestionnaireCompte gestionnaireCompte;
@@ -36,17 +36,17 @@ public class Operations implements Serializable {
         this.id = id;
     }
 
-    public CompteBancaire getComptebancaire() {
-        return comptebancaire;
+    public CompteBancaire getCompteBancaire() {
+        return compteBancaire;
     }
     
-    public List<OperationBancaire> getOperationbancaire() {
-        return operationbancaire;
+    public List<OperationBancaire> getOperationBancaires() {
+        return operationBancaires;
     }
     
     public void loadCompte(){
-        this.comptebancaire= gestionnaireCompte.getCompte(id);
-        this.operationbancaire=comptebancaire.getOperations();
+        this.compteBancaire= gestionnaireCompte.getCompte(id);
+        this.operationBancaires=compteBancaire.getOperations();
     }
     
     /**
